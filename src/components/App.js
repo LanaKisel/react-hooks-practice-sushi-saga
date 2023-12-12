@@ -8,13 +8,11 @@ function App() {
 
   const [sushiRolls, setSushiRolls] = useState([]);
   const [emptyPlates, setEmptyPlates] = useState([]);
-
-  const startMoney = 100;
-  const [money, setMoney] = useState(startMoney);
+  const [money, setMoney] = useState(100);
 
   useEffect(() => {
     if (emptyPlates.length > 0) {
-      setMoney(startMoney - emptyPlates.reduce((accumulator, plate) => {
+      setMoney(money - emptyPlates.reduce((accumulator, plate) => {
         return accumulator + plate.price
       }, 0))
     }
